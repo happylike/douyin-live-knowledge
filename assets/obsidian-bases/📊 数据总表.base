@@ -1,0 +1,109 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder(this.file.folder)
+    - or:
+        - 类型 == "直播场次"
+        - 类型 == "完整文字稿"
+        - 类型 == "连线案件"
+        - 类型 == "实务知识"
+        - 类型 == "唠嗑价值"
+properties:
+  file.name:
+    displayName: 笔记
+  note.类型:
+    displayName: 内容类型
+  note.场次编号:
+    displayName: 场次编号
+  note.主播:
+    displayName: 主播
+  note.连线编号:
+    displayName: 连线编号
+  note.重要度:
+    displayName: 重要度
+  note.复核状态:
+    displayName: 复核状态
+  note.所属直播:
+    displayName: 所属直播
+views:
+  - type: table
+    name: 全部数据
+    order:
+      - file.name
+      - 类型
+      - 场次编号
+      - 主播
+      - 连线编号
+      - 重要度
+      - 复核状态
+      - 所属直播
+    sort:
+      - property: 场次编号
+        direction: DESC
+      - property: 重要度
+        direction: DESC
+  - type: table
+    name: 直播场次
+    filters:
+      and:
+        - 类型 == "直播场次"
+    order:
+      - file.name
+      - 场次编号
+      - 主播
+      - 开播时间
+      - 整场时长
+      - 处理状态
+      - 案件数量
+      - 知识点数量
+      - 唠嗑价值数量
+  - type: table
+    name: 完整文字稿
+    filters:
+      and:
+        - 类型 == "完整文字稿"
+    order:
+      - file.name
+      - 场次编号
+      - 主播
+      - 整场时长
+      - 处理状态
+      - 复核状态
+  - type: table
+    name: 连线案件
+    filters:
+      and:
+        - 类型 == "连线案件"
+    order:
+      - file.name
+      - 场次编号
+      - 连线编号
+      - 重要度
+      - 案件领域
+      - 咨询问题摘要
+      - 回答状态
+      - 复核状态
+  - type: table
+    name: 实务知识
+    filters:
+      and:
+        - 类型 == "实务知识"
+    order:
+      - file.name
+      - 场次编号
+      - 重要度
+      - 知识分类
+      - 知识摘要
+      - 关联案件
+  - type: table
+    name: 唠嗑价值
+    filters:
+      and:
+        - 类型 == "唠嗑价值"
+    order:
+      - file.name
+      - 场次编号
+      - 重要度
+      - 价值类型
+      - 内容摘要
+      - 关联案件

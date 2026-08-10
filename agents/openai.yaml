@@ -1,0 +1,4 @@
+interface:
+  display_name: "抖音直播知识库"
+  short_description: "整场转写、案件完整原稿与中文 Obsidian 看板"
+  default_prompt: "使用 $douyin-live-knowledge 将这批直播先整理到暂存目录，检查通过后再询问是否写入正式 Vault。"

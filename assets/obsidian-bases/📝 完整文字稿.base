@@ -1,0 +1,40 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder(this.file.folder + "/完整文字稿")
+    - 类型 == "完整文字稿"
+properties:
+  file.name:
+    displayName: 文字稿
+  note.场次编号:
+    displayName: 场次编号
+  note.主播:
+    displayName: 主播
+  note.整场时长:
+    displayName: 整场时长
+  note.覆盖分段概况:
+    displayName: 覆盖分段
+  note.识别模型:
+    displayName: 识别模型
+  note.处理状态:
+    displayName: 转写状态
+  note.复核状态:
+    displayName: 复核状态
+  note.所属直播:
+    displayName: 所属直播
+views:
+  - type: table
+    name: 全部完整文字稿
+    order:
+      - file.name
+      - 场次编号
+      - 主播
+      - 整场时长
+      - 覆盖分段概况
+      - 识别模型
+      - 处理状态
+      - 复核状态
+      - 所属直播
+    sort:
+      - property: 场次编号
+        direction: DESC

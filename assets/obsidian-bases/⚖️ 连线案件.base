@@ -1,0 +1,115 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder(this.file.folder + "/连线案件")
+    - 类型 == "连线案件"
+properties:
+  file.name:
+    displayName: 案件笔记
+  note.场次编号:
+    displayName: 场次编号
+  note.连线编号:
+    displayName: 连线编号
+  note.连线人代称:
+    displayName: 连线人
+  note.重要度:
+    displayName: 重要度
+  note.重要程度:
+    displayName: 重要程度
+  note.案件领域:
+    displayName: 案件领域
+  note.咨询人角色:
+    displayName: 咨询人角色
+  note.咨询问题摘要:
+    displayName: 咨询问题
+  note.回答要点摘要:
+    displayName: 回答要点
+  note.处理方向摘要:
+    displayName: 处理方向
+  note.回答状态:
+    displayName: 回答状态
+  note.有期限风险:
+    displayName: 期限风险
+  note.需要重听:
+    displayName: 需要重听
+  note.复核状态:
+    displayName: 复核状态
+  note.法律核验状态:
+    displayName: 法律核验
+  note.案件文字稿状态:
+    displayName: 案件文字稿
+  note.来源位置:
+    displayName: 来源位置
+  note.所属直播:
+    displayName: 所属直播
+views:
+  - type: table
+    name: 全部连线案件
+    order:
+      - file.name
+      - 场次编号
+      - 连线编号
+      - 连线人代称
+      - 重要度
+      - 案件领域
+      - 咨询问题摘要
+      - 回答要点摘要
+      - 处理方向摘要
+      - 回答状态
+      - 有期限风险
+      - 复核状态
+      - 法律核验状态
+      - 案件文字稿状态
+      - 来源位置
+      - 所属直播
+    sort:
+      - property: 连线编号
+        direction: DESC
+      - property: 重要度
+        direction: DESC
+  - type: table
+    name: 核心案件
+    filters:
+      and:
+        - 重要度 >= 4
+    order:
+      - file.name
+      - 连线编号
+      - 重要度
+      - 案件领域
+      - 咨询问题摘要
+      - 回答要点摘要
+      - 案件文字稿状态
+      - 复核状态
+  - type: table
+    name: 期限紧急
+    filters:
+      and:
+        - 有期限风险 == true
+    order:
+      - file.name
+      - 连线编号
+      - 重要度
+      - 处理方向摘要
+      - 复核状态
+  - type: table
+    name: 未完整回答
+    filters:
+      and:
+        - 回答状态 != "实质回答"
+    order:
+      - file.name
+      - 连线编号
+      - 咨询问题摘要
+      - 回答状态
+      - 复核状态
+  - type: table
+    name: 需要重听
+    filters:
+      and:
+        - 需要重听 == true
+    order:
+      - file.name
+      - 连线编号
+      - 来源位置
+      - 复核状态

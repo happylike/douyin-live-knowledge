@@ -1,0 +1,59 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder(this.file.folder + "/实务知识")
+    - 类型 == "实务知识"
+properties:
+  file.name:
+    displayName: 知识笔记
+  note.场次编号:
+    displayName: 场次编号
+  note.重要度:
+    displayName: 重要度
+  note.知识分类:
+    displayName: 知识分类
+  note.知识摘要:
+    displayName: 知识摘要
+  note.实务用途摘要:
+    displayName: 实务用途
+  note.关联案件:
+    displayName: 关联案件
+  note.复核状态:
+    displayName: 复核状态
+  note.法律核验状态:
+    displayName: 法律核验
+  note.来源位置:
+    displayName: 来源位置
+  note.所属直播:
+    displayName: 所属直播
+views:
+  - type: table
+    name: 全部实务知识
+    order:
+      - file.name
+      - 场次编号
+      - 重要度
+      - 知识分类
+      - 知识摘要
+      - 实务用途摘要
+      - 关联案件
+      - 复核状态
+      - 法律核验状态
+      - 来源位置
+      - 所属直播
+    sort:
+      - property: 重要度
+        direction: DESC
+  - type: table
+    name: 核心知识
+    filters:
+      and:
+        - 重要度 >= 4
+    order:
+      - file.name
+      - 重要度
+      - 知识分类
+      - 知识摘要
+      - 实务用途摘要
+      - 关联案件
+      - 复核状态

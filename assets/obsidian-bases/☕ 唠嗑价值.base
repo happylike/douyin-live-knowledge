@@ -1,0 +1,43 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder(this.file.folder + "/唠嗑价值")
+    - 类型 == "唠嗑价值"
+properties:
+  file.name:
+    displayName: 唠嗑笔记
+  note.场次编号:
+    displayName: 场次编号
+  note.重要度:
+    displayName: 重要度
+  note.价值类型:
+    displayName: 价值类型
+  note.内容摘要:
+    displayName: 内容摘要
+  note.可复用价值摘要:
+    displayName: 可复用价值
+  note.关联案件:
+    displayName: 关联案件
+  note.复核状态:
+    displayName: 复核状态
+  note.来源位置:
+    displayName: 来源位置
+  note.所属直播:
+    displayName: 所属直播
+views:
+  - type: table
+    name: 全部唠嗑价值
+    order:
+      - file.name
+      - 场次编号
+      - 重要度
+      - 价值类型
+      - 内容摘要
+      - 可复用价值摘要
+      - 关联案件
+      - 复核状态
+      - 来源位置
+      - 所属直播
+    sort:
+      - property: 重要度
+        direction: DESC

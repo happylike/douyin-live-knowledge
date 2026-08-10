@@ -1,0 +1,76 @@
+filters:
+  and:
+    - file.ext == "md"
+    - file.inFolder(this.file.folder)
+    - or:
+        - 类型 == "直播场次"
+        - 类型 == "完整文字稿"
+        - 类型 == "连线案件"
+        - 类型 == "实务知识"
+        - 类型 == "唠嗑价值"
+    - 复核状态 != "已复核"
+properties:
+  file.name:
+    displayName: 待复核笔记
+  note.类型:
+    displayName: 内容类型
+  note.场次编号:
+    displayName: 场次编号
+  note.连线编号:
+    displayName: 连线编号
+  note.重要度:
+    displayName: 重要度
+  note.复核状态:
+    displayName: 复核状态
+  note.复核原因:
+    displayName: 复核原因
+  note.法律核验状态:
+    displayName: 法律核验
+  note.需要重听:
+    displayName: 需要重听
+  note.来源位置:
+    displayName: 来源位置
+  note.所属直播:
+    displayName: 所属直播
+views:
+  - type: table
+    name: 全部待复核
+    order:
+      - file.name
+      - 类型
+      - 场次编号
+      - 连线编号
+      - 重要度
+      - 复核状态
+      - 复核原因
+      - 法律核验状态
+      - 需要重听
+      - 来源位置
+      - 所属直播
+    sort:
+      - property: 重要度
+        direction: DESC
+  - type: table
+    name: 待法律核验
+    filters:
+      and:
+        - 法律核验状态 == "待核验"
+    order:
+      - file.name
+      - 类型
+      - 连线编号
+      - 重要度
+      - 复核原因
+      - 来源位置
+      - 所属直播
+  - type: table
+    name: 需要重听
+    filters:
+      and:
+        - 需要重听 == true
+    order:
+      - file.name
+      - 类型
+      - 连线编号
+      - 复核原因
+      - 来源位置
