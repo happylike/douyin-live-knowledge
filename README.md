@@ -1,5 +1,7 @@
 # Douyin Live Knowledge
 
+**许可证：** [GNU Affero General Public License v3.0 only](LICENSE) · Copyright (C) 2026 happylike
+
 一个面向 Codex 的本地抖音直播知识库 Skill。它把分段录制的视频或音频重建为完整直播场次，生成带时间戳的中文文字稿，切分连线案件、实务知识和有价值的唠嗑，并输出可直接放入 Obsidian 的中文知识库与七个 Bases 看板。
 
 本项目特别适合律师、咨询、答疑等包含大量连线内容的直播归档。每份案件笔记除了结构化概括，还会在末尾附上该案件全部来源时间段对应的完整机器识别文字稿。
@@ -195,6 +197,15 @@ douyin-live-knowledge/
 - `references/`：分析结构、隐私质量、场次重建及数据模型说明。
 - `assets/obsidian-bases/`：七个中文 Obsidian Bases 模板。
 
-## 开源说明
+## 许可证
 
-项目记录了设计时参考的开源基础，详见 [`references/open-source-basis.md`](references/open-source-basis.md)。当前仓库尚未附加开源许可证；公开可见不等于自动授予复制、修改或分发权利。
+除文件另有说明外，本仓库中的原创代码、Skill 规则、参考文档和 Bases 模板采用 [GNU Affero General Public License v3.0 only](LICENSE)，SPDX 标识为 `AGPL-3.0-only`。
+
+- 允许个人和商业使用、修改与分发。
+- 对外分发本项目或其修改版本时，必须继续按 AGPL-3.0 提供对应源码。
+- 如果修改版本支持远程网络交互，必须向使用该网络服务的用户免费提供对应源码。
+- 本项目不提供任何明示或默示担保，完整条款以 [`LICENSE`](LICENSE) 为准。
+
+本许可证不会仅因使用本项目而自动覆盖用户自己的直播视频、音频、案件资料、转写结果、分析 JSON、Obsidian Vault 或其他处理输出。第三方模型、Python 包和系统工具仍分别适用其自身许可证。
+
+项目记录了设计时参考的开源基础，详见 [`references/open-source-basis.md`](references/open-source-basis.md)。
